@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MetaMask Wallet Connection</title>
+</head>
+<body>
+
+<h2>Connect MetaMask Wallet</h2>
+<button onclick="connectWallet()">Connect Wallet</button>
+
+<p id="account"></p>
+
+<script>
+async function connectWallet() {
+  if (window.ethereum) {
+    const accounts = await ethereum.request({
+      method: "eth_requestAccounts"
+    });
+    document.getElementById("account").innerText =
+      "Connected Wallet Address: " + accounts[0];
+  } else {
+    alert("MetaMask is not installed");
+  }
+}
+</script>
+
+</body>
+</html>
